@@ -1,0 +1,20 @@
+%h4 
+  Orders list
+%table
+  %thead
+    %tr
+      %th Id
+      %th Seller
+      %th Client
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td 
+          = order.id
+        %td 
+          = link_to order.seller.name, edit_seller_path(id: order.seller.id)
+        %td 
+          = link_to order.client.name, edit_client_path(id: order.client.id)
+%p 
+  = link_to "Clients list", clients_path
+  = link_to "Sellers list", sellers_path

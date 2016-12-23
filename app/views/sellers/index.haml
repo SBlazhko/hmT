@@ -1,0 +1,23 @@
+%h4 
+  Sellers list
+%table
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th Clients
+  %tbody
+    - @sellers.each do |seller|
+      %tr
+        %td 
+          = seller.id
+        %td 
+          = seller.name
+        %td
+          - seller.clients.each do |client|
+            = link_to "#{client.name} ", edit_client_path(id: client.id)
+        %td 
+          = link_to 'Edit', edit_seller_path(id: seller.id)
+%p
+  = link_to 'Back', root_path
+  = link_to 'New Seller', new_seller_path 

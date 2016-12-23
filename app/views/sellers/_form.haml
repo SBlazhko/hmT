@@ -1,0 +1,9 @@
+= form_for @seller do |f|
+  %p
+    = f.label(:name)
+    = f.text_field(:name)
+  %p
+    = f.label(:client_ids)
+    = f.collection_check_boxes(:client_ids, Client.all,:id,:name)
+  %p
+    = f.submit
